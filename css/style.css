@@ -1,0 +1,30 @@
+/** {*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+/*}*/
+
+.wrapper {
+    width: 500px;
+    margin: 0 auto;
+    font-family: Arial;
+}
+
+.header {
+    text-align: center;
+    font-weight: 600;
+}
+
+.chBoxContainer {
+    margin: 5px 50px;
+}
+
+.answer {
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+.btn {
+    display: block;
+    margin: 30px auto;
+}
+
