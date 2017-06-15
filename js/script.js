@@ -7,15 +7,15 @@
             questions: [
                 {
                     title: '1. Вопрос №1',
-                    answers: ['Вариант овтета 1', 'Вариант овтета 2', 'Вариант овтета 3']
+                    answers: ['Вариант ответа 1', 'Вариант ответа 2', 'Вариант ответа 3']
                 },
                 {
                     title: '2. Вопрос №2',
-                    answers: ['Вариант овтета 1', 'Вариант овтета 2', 'Вариант овтета 3', 'Вариант овтета 4']
+                    answers: ['Вариант ответа 1', 'Вариант ответа 2', 'Вариант ответа 3', 'Вариант ответа 4']
                 },
                 {
                     title: '3. Вопрос №3',
-                    answers: ['Вариант овтета 1', 'Вариант овтета 2']
+                    answers: ['Вариант ответа 1', 'Вариант ответа 2']
                 }
             ]
         },
@@ -30,7 +30,7 @@
         showTestTitle: function () {
             var elem = document.createElement('h2');
             elem.classList.add('header');
-            elem.innerHTML = this.data.title;
+            elem.appendChild(document.createTextNode(this.data.title));
             var wrapper = document.querySelector('.wrapper');
             wrapper.appendChild(elem);
         },
@@ -38,30 +38,28 @@
             for (var i = 0, length = this.data.questions.length; i < length; i++) {
                 var header = document.createElement('h3');
                 header.classList.add('ques_header');
-                header.innerHTML = this.data.questions[i].title;
+                header.appendChild(document.createTextNode(this.data.questions[i].title));
                 var wrapper = document.querySelector('.wrapper');
                 wrapper.appendChild(header);
 
                 for ( var j= 0, max = this.data.questions[i].answers.length; j < max; j++) {
-                    var container = document.createElement('div');
-                    container.classList.add('chBoxContainer');
-                    wrapper.appendChild(container);
-
-                    var checkbox = document.createElement('input');
-                    container.appendChild(checkbox);
-                    checkbox.setAttribute('type', 'checkbox');
-
                     var label = document.createElement('label');
                     label.classList.add('answer');
-                    container.appendChild(label);
-                    label.innerHTML = this.data.questions[i].answers[j];
+                    wrapper.appendChild(label);
+
+
+                    var checkbox = document.createElement('input');
+                    checkbox.setAttribute('type', 'checkbox');
+                    label.appendChild(checkbox);
+                    label.appendChild(document.createTextNode(this.data.questions[i].answers[j]));
+
                 }
             }
         },
         createButton: function () {
             var button = document.createElement('button');
             button.classList.add('btn');
-            button.innerHTML = 'Проверить мои результаты';
+            button.appendChild(document.createTextNode('Проверить мои результаты'));
             var wrapper = document.querySelector('.wrapper');
             wrapper.appendChild(button);
         }
