@@ -19,33 +19,34 @@
                 }
             ]
         },
-        
+
         createStructure: function () {
             var body = document.body;
             var elem = document.createElement('div');
             elem.classList.add('wrapper');
             body.insertBefore(elem, body.children[0]);
+            this.wrapper = document.querySelector('.wrapper');
         },
-        
+
         showTestTitle: function () {
-            var wrapper = document.querySelector('.wrapper');
+            // var wrapper = document.querySelector('.wrapper');
             var elem = document.createElement('h2');
             elem.classList.add('header');
             elem.appendChild(document.createTextNode(this.data.title));
-            wrapper.appendChild(elem);
+            this.wrapper.appendChild(elem);
         },
         showTestQuestions: function () {
             for (var i = 0, length = this.data.questions.length; i < length; i++) {
-                var wrapper = document.querySelector('.wrapper');
+                // var wrapper = document.querySelector('.wrapper');
                 var header = document.createElement('h3');
                 header.classList.add('ques_header');
                 header.appendChild(document.createTextNode(this.data.questions[i].title));
-                wrapper.appendChild(header);
+                this.wrapper.appendChild(header);
 
                 for ( var j= 0, max = this.data.questions[i].answers.length; j < max; j++) {
                     var label = document.createElement('label');
                     label.classList.add('answer');
-                    wrapper.appendChild(label);
+                    this.wrapper.appendChild(label);
 
                     var checkbox = document.createElement('input');
                     checkbox.setAttribute('type', 'checkbox');
@@ -56,11 +57,11 @@
             }
         },
         createButton: function () {
-            var wrapper = document.querySelector('.wrapper');
+            // var wrapper = document.querySelector('.wrapper');
             var button = document.createElement('button');
             button.classList.add('btn');
             button.appendChild(document.createTextNode('Проверить мои результаты'));
-            wrapper.appendChild(button);
+            this.wrapper.appendChild(button);
         }
     };
 
